@@ -1,43 +1,43 @@
-// let $buttonTags = document.querySelectorAll('button')
+var $instructions = document.getElementById('instructions');
+var $animal = document.getElementById('animal');
+var $littleFrog = new Frog();
+$rate = document.getElementById('rating')
 
-// for (let i = 0; i < $buttonTags.length; i++) {
-//   $buttonTags[i].onclick = function(event) {
-//     event.preventDefault() // Stop the default behavior: stop the redirection to another page
-//     console.log('I was clicked!')
-//     // Falta código AQUI
-//   }
-// }
+var $rate;
+var frogNumber;
+var gameTimer;
+var output;
+var $numHits = 0;
 
-// function myImg() {
-//   var x = document.createElement("IMG");
-//   x.setAttribute("src", "./Images/animal-frog-001-s.png  ");
-//   x.setAttribute("width", "304");
-//   x.setAttribute("height", "228");
-//   x.setAttribute("alt", "The Pulpit Rock");
-//   document.body.appendChild(x);
-// }
-var lastIndex = 0;
 
-function randomImage() {
-  var theImage = document.getElementById('myimage');
-  var imgDir = './Images/animal-frog-001-s.png';
-  var imgArray = new array('./Images/bomb.png', 'little-frog-1.png');
-  var imgIndex = 0;
-  if (imgArray.length > 1) {
-    while (imgIndex === lastIndex) {
-      imgIndex = Math.floor(Math.random() * imgArray.length);
-    }
-    lastIndex = imgIndex;
-  }
+function onCloseIntrunctions() {
+  $instructions.style.display = "none";
 }
 
-var elementToChange = document.getElementsByTagName("body")[0];
-elementToChange.style.cursor = "url('cursor url with protocol'), auto";
+setInterval(() => {
+  $littleFrog.randomImage()
+}, 2000);
 
-window.onload = function () {
-  document.getElementById('close').onclick = function () {
-    this.parentNode.parentNode.parentNode
-      .removeChild(this.parentNode.parentNode);
-    return false;
-  };
-};
+
+function hitFrog() {
+  $numHits += 1;
+  $rate = document.getElementById('rating').innerHTML = $numHits;
+  $littleFrog.randomImage();
+}
+
+// ----------------------------------------------------------------------------------------------------------------------------------
+// falta fazer o score + possivel high score + reset + play + click frogs + string no spongebob + game over
+// ----------------------------------------------------------------------------------------------------------------------------------
+
+
+// SCORE - 
+// this.score = Math.floor(Math.random() * 201) - 100
+
+
+
+// RESET THE GAME ????
+// function reset() {
+//   document.getElementById("reset").reset();
+//   console.log("reset")
+// }
+
