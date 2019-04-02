@@ -11,17 +11,14 @@
 
 <body>
 
-
   <header class="header">
     <!-- <h1>FROG HUNTER</h1> -->
     <img src="./Images/titulo.png" alt="title" height="203px">
   </header>
-  <!-- yes or no? -->
-  <!-- <hr class="style-four"> -->
 
   <div id="instructions" class="warning">
     <button id="close" class="button-close"><img src="./Images/icons8-delete-500.png" alt="" width="100px"
-        onclick="onCloseIntrunctions()"></button>
+        onclick="onCloseInstructions()"></button>
     <h1>Instructions</h1>
     <p>HELLO WORLD!</p>
     <p>Let's play Frog Hunters! Are you ready to catch some crazy frogs?</p>
@@ -31,6 +28,13 @@
     <p>Use your mouse to click before he goes away!</p>
   </div>
   </div>
+
+  <!-- DIV EXPLODE, FALTA FAZER -->
+  <!-- <div id="over" class="explode">
+    <img src="./Images/game-explode.png" alt="">
+    <button>Try Again</button>
+  </div> -->
+
   <section id="game">
     <div class="frog-rating">
       <div class="frog">
@@ -38,27 +42,28 @@
         <!-- <img id="myimage" alt="" /> -->
         <div id="animal" class="grid-container">
           <!-- RANDOM FROG HERE -->
-          <!-- <button onclick="myImg()">Try it</button> -->
-          <div class="divID" id="pos-1" onclick="hitFrog()"></div>
-          <div class="divID" id="pos-2" onclick="hitFrog()"></div>
-          <div class="divID" id="pos-3" onclick="hitFrog()"></div>
-          <div class="divID" id="pos-4" onclick="hitFrog()"></div>
-          <div class="divID" id="pos-5" onclick="hitFrog()"></div>
-          <div class="divID" id="pos-6" onclick="hitFrog()"></div>
-          <div class="divID" id="pos-7" onclick="hitFrog()"></div>
-          <div class="divID" id="pos-8" onclick="hitFrog()"></div>
-          <div class="divID" id="pos-9" onclick="hitFrog()"></div>
+          <div class="pond" id="pos-1" onclick="hitFrog(1)"></div>
+          <div class="pond" id="pos-2" onclick="hitFrog(2)"></div>
+          <div class="pond" id="pos-3" onclick="hitFrog(3)"></div>
+          <div class="pond" id="pos-4" onclick="hitFrog(4)"></div>
+          <div class="pond" id="pos-5" onclick="hitFrog(5)"></div>
+          <div class="pond" id="pos-6" onclick="hitFrog(6)"></div>
+          <div class="pond" id="pos-7" onclick="hitFrog(7)"></div>
+          <div class="pond" id="pos-8" onclick="hitFrog(8)"></div>
+          <div class="pond" id="pos-9" onclick="hitFrog(9)"></div>
         </div>
       </div>
+
       <div id="rating">
+        <div><img src="./Images/icons8-rating-64.png" alt=""></div>
         <p></p>
-      <div id="rate">
-        <!-- <h3>SCORE:</h3> -->
-        <img src="./Images/icons8-rating-64.png" alt="">
+        <div id="rate">
+          <!-- <h3>SCORE:</h3> -->
+        </div>
       </div>
-    </div>
+
       <div>
-        <img src="./Images/new sponge.png" alt="" height="500px" class="image-spong">
+        <img src="./Images/SPONGMARTELO.png" alt="" height="500px" class="image-spong">
       </div>
     </div>
   </section>
@@ -71,7 +76,7 @@
     </div>
   </section>
 
-  <script src="./js/frog.js"></script>
+  <!-- <script src="./js/frog.js"></script> -->
   <script src="./js/main.js"></script>
 </body>
 
