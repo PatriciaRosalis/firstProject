@@ -1,38 +1,44 @@
 var $instructions = document.getElementById('instructions');
+var $explode = document.getElementById('over')
 var $animal = document.getElementById('animal');
-var $rate = document.querySelector('#rating p')
-
-var frogNumber;
-var gameTimer;
-var output;
-var $numHits = 0;
-
+var $rate = document.querySelector('#rating p');
+var score = 0;
+var interval;
 
 function onCloseInstructions() {
   $instructions.style.display = "none";
 }
 
-setInterval(() => {
-  randomImage()
-}, 2000);
-
-
 function hitFrog(pos) {
   let dataFrog = document.querySelector("#pos-" + pos).getAttribute("data-frog")
   console.log(dataFrog)
 
-  if (dataFrog >= 1) {
-    $numHits += 10;
+  if (dataFrog == 1) {
+    score += 10;
   }
-  else if (dataFrog >= 2) {
-    $numHits += 20;
+  else if (dataFrog == 2) {
+    score += 20;
   }
-  else {
-    $numHits = 0;
+  else if (dataFrog == 0) {
+    gameOver();
+    resetChr();
+    return;
   }
-  $rate.innerHTML = $numHits;
+  $rate.innerHTML = score;
   randomImage();
 }
+
+// 600 - 0
+function Velocity() {
+  let randomVelocity = Math.floor(Math.random() * 800) + 100;
+  return randomVelocity;
+}
+
+function frogVelocity() {
+  let frogFast = Math.floor(Math.random() * 800) + 1500;
+  return frogFast;
+}
+
 
 function randomImage() {
   var $theImage = document.getElementsByClassName('pond');
@@ -40,40 +46,40 @@ function randomImage() {
   var $frogArray = ['./Images/bomb.png', './Images/little-frog-1.png', './Images/animal-frog-001-s.png']
   var $frogIndex = Math.floor(Math.random() * $frogArray.length);
 
-  $theImage[$placeIndex].setAttribute("data-frog", Math.floor(Math.random() * 3) + 1)
+  $theImage[$placeIndex].setAttribute("data-frog", Math.floor(Math.random() * 3))
   // $theImage[$placeIndex].style.backgroundImage = "url(" + $frogArray[$frogIndex] + ")"
   setTimeout(() => {
     // $theImage[$placeIndex].style.backgroundImage = "";
     $theImage[$placeIndex].removeAttribute("data-frog")
-  }, 1000);
+  }, Velocity());
 }
 
 
-// function gameOver() {
+// TRY AGAIN
+function tryAgain() {
+  $explode.style.display = "none";
+  score = 0;
+  $rate.innerHTML = score;
+  resetChr();
+  clearInterval(interval);
+}
 
-//   var $over = document.getElementById("over");
-//   if ($over.style.display === "none") {
-//     $over.style.display = "block";
-//   } else {
-//     $over.style.display = "none";
-//   }
-// }
+// game over
+function gameOver() {
+  $explode.style.display = "flex";
+}
+
+// play
+function play() {
+  interval = setInterval(function () {
+    randomImage();
+  }, frogVelocity());
+  startChr();
+}
+
 // ----------------------------------------------------------------------------------------------------------------------------------
-// falta fazer o score + possivel high score + reset + play + click frogs + string no spongebob + game over
+// falta fazer o score + possivel high score 
 // ----------------------------------------------------------------------------------------------------------------------------------
-
-
-// SCORE - 
-// this.score = Math.floor(Math.random() * 201) - 100
-
-
-
-// RESET THE GAME ????
-// function reset() {
-//   document.getElementById("reset").reset();
-//   console.log("reset")
-// }
-
 
 
 // For the highscore

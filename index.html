@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- DIV EXPLODE,-->
+<div id="over" class="explode">
+  <img src="./Images/game-explode.png" alt="">
+  <button onclick="tryAgain()">Try Again</button>
+</div>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,18 +35,12 @@
   </div>
   </div>
 
-  <!-- DIV EXPLODE, FALTA FAZER -->
-  <!-- <div id="over" class="explode">
-    <img src="./Images/game-explode.png" alt="">
-    <button>Try Again</button>
-  </div> -->
-
   <section id="game">
     <div class="frog-rating">
       <div class="frog">
         <!-- <h1>FROG GAME</h1> -->
-        <!-- <img id="myimage" alt="" /> -->
         <div id="animal" class="grid-container">
+
           <!-- RANDOM FROG HERE -->
           <div class="pond" id="pos-1" onclick="hitFrog(1)"></div>
           <div class="pond" id="pos-2" onclick="hitFrog(2)"></div>
@@ -56,27 +56,28 @@
 
       <div id="rating">
         <div><img src="./Images/icons8-rating-64.png" alt=""></div>
-        <p></p>
+        <p>0</p>
         <div id="rate">
           <!-- <h3>SCORE:</h3> -->
         </div>
+        <div id="showtm"> </div>
       </div>
 
-      <div>
-        <img src="./Images/SPONGMARTELO.png" alt="" height="500px" class="image-spong">
-      </div>
-    </div>
   </section>
 
   <section id="two" class="play-spongebob">
     <div class="play">
       <!-- BUTTONS -->
-      <button><img src="./Images/play-200.png" alt="" height="150px"></button>
-      <button id="reset"><img src="./Images/icon8-200.png" alt="" height="150px"></button>
+      <button onclick="play()"><img src="./Images/play-200.png" alt="" height="150px"></button>
+      <button onclick="tryAgain()" id="reset"><img src="./Images/icon8-200.png" alt="" height="150px"></button>
     </div>
   </section>
 
-  <!-- <script src="./js/frog.js"></script> -->
+  <div>
+    <img src="./Images/SPONGMARTELO.png" alt="" height="500px" class="image-spong">
+  </div>
+
+  <script src="./js/timer.js"></script>
   <script src="./js/main.js"></script>
 </body>
 
