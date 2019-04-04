@@ -2,8 +2,22 @@ var $instructions = document.getElementById('instructions');
 var $explode = document.getElementById('over')
 var $animal = document.getElementById('animal');
 var $rate = document.querySelector('#rating p');
+var $countDown = document.getElementById('time');
+var $valueHighScore = document.getElementById('high-score-1-value');
+
+var playing = false;
+var highScore = 0;
 var score = 0;
 var interval;
+var timeLeft = 40;
+var countDownInterval;
+
+function onLoad() {
+  $rate.innerText = score;
+  $countDown.innerText = timeLeft;
+  getHighScore();
+  //  TODO: falta o high score
+}
 
 function onCloseInstructions() {
   $instructions.style.display = "none";
@@ -11,6 +25,7 @@ function onCloseInstructions() {
 }
 
 function hitFrog(pos) {
+  if (!playing) { return; }
   let dataFrog = document.querySelector("#pos-" + pos).getAttribute("data-frog")
   console.log(dataFrog)
 
@@ -22,12 +37,26 @@ function hitFrog(pos) {
   }
   else if (dataFrog == 0) {
     gameOver();
-    resetTime();
+    resetCountDown();
     return;
   }
-  $rate.innerHTML = score;
+  $rate.innerText = score;
+  if (highScore < score) {
+    setHighScore();
+  }
   randomImage();
   // playAudioFrog();
+}
+
+function setHighScore() {
+  highScore = score;
+  $valueHighScore.innerText = highScore;
+  localStorage.setItem('highScoreValue', highScore.toString());
+}
+
+function getHighScore() {
+  highScore = Number(localStorage.getItem('highScoreValue'));
+  $valueHighScore.innerText = highScore;
 }
 
 // 600 - 0
@@ -60,47 +89,58 @@ function randomImage() {
 
 // TRY AGAIN
 function tryAgain() {
+  playing = false;
   $explode.style.display = "none";
   score = 0;
-  $rate.innerHTML = score;
-  resetTime();
+  $rate.innerText = score;
   clearInterval(interval);
   pauseAudioFrog();
-  pauseAudio1()
+  pauseAudio1();
+  clearInterval(countDownInterval);
+  resetCountDown();
   // renderHighScore();
 }
 
 // game over
 function gameOver() {
+  playing = false;
   $explode.style.display = "flex";
-  playAudio1()
-  pauseAudioFrog()
+  playAudio1();
+  pauseAudioFrog();
+  clearInterval(countDownInterval);
 }
 
 // play
 function play() {
+  playing = true;
   interval = setInterval(function () {
     randomImage();
   }, frogVelocity());
-  startTime();
-  pauseAudio1()
+  pauseAudio1();
+  startCountDown();
 }
 
-function getFirstHighScoreValue() {
-  // localStorage.getItem always return a string
-  return Number(localStorage.getItem('highScoreValue'))
+// tiktak
+function tiktak() {
+  if (timeLeft == -1) {
+    gameOver();
+  } else {
+    $countDown.innerText = timeLeft;
+    timeLeft--;
+  }
 }
 
-function getFirstHighScoreName() {
-  return localStorage.getItem('highScoreName')
+// start count
+function startCountDown() {
+  countDownInterval = setInterval(tiktak, 1000);
+  // tiktak();
 }
 
-function renderHighScore() {
-  document.getElementById("high-score-1-value").innerText = getFirstHighScoreValue()
-  document.getElementById("high-score-1-name").innerText = getFirstHighScoreName()
+// reset Time
+function resetCountDown() {
+  timeLeft = 40;
+  document.getElementById('time').innerText = timeLeft;
 }
-
-renderHighScore()
 
 // Take the score and update the first high score if necessary
 function saveFirstHighScore(newScore) {
@@ -141,3 +181,5 @@ function playAudio1() {
 function pauseAudio1() {
   exploseAudio.pause();
 }
+
+onLoad()

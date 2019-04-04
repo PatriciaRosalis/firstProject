@@ -4,6 +4,8 @@ html {
   background-image: url('./Images/background.png');
   background-repeat: no-repeat;
   background-size: 110% 121%;
+  height: 100%;
+  width: 100%;
 }
 
 * {
@@ -71,6 +73,7 @@ html {
   position: relative;
   justify-content: center;
   align-items: center;
+  padding: 30px;
 }
 
 .image-spong {
@@ -83,7 +86,7 @@ html {
 #rating {
   border: 2px solid black;
   height: 499px;
-  width: 200px;
+  width: 220px;
   text-align: center;
   background-color: white;
   font-size: 25px;
@@ -91,13 +94,6 @@ html {
 
 #rating img, p {
   margin: 20px;
-}
-
-.play-spongebob {
-  margin-right: 187px;
-  ;
-  display: flex;
-  /* justify-content: flex-end; */
 }
 
 .play-spongebob button {
@@ -112,10 +108,13 @@ html {
 }
 
 .play {
-  /* border: 3px solid black; */
   height: 33px;
   flex-grow: 1;
+  align-items: center;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
 }
 
 .spongebob {
@@ -131,8 +130,10 @@ html {
   border: 2px solid black;
   background-color: white;
   height: 478px;
-  width: 600px;
-  margin: 50px;
+  min-width: 350px;
+  max-width: 600px;
+  width: 100%;
+  margin-right: 10px;
 }
 
 .warning {
@@ -141,7 +142,7 @@ html {
   right: 0;
   margin: 46px auto;
   width: 99%;
-  height: 70%;
+  min-height: 650px;
   background-color: #e0aa47;
   border: 2px solid black;
   text-align: center;
@@ -179,8 +180,14 @@ html {
 }
 
 .button-close {
-  cursor: pointer;
   cursor:pointer;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .explode {
@@ -216,4 +223,28 @@ html {
   border-radius: 60px;
   border: 3px dashed rgba(199, 24, 24, 0.726);
   cursor:pointer;
+}
+
+
+@media (max-width: 1100px) { 
+ .sponge-bob {
+   display: none;
+ }
+}
+
+@media (max-width: 750px) {
+  .frog-rating {
+    flex-direction: column;
+  }
+
+  .grid-container {
+    margin-right: 0px;
+  }
+
+  #rating {
+    height: auto;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+  }
 }

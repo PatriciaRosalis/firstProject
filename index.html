@@ -5,7 +5,7 @@
 <div id="over" class="explode">
   <img src="./Images/game-explode.png" alt="">
   <button onclick="tryAgain()">Try Again</button>
-  <button onclick="" class="button-explode2">High Score</button>
+  <!-- <button onclick="" class="button-explode2">High Score</button> -->
 </div>
 
 <head>
@@ -31,7 +31,7 @@
 
   <header class="header">
     <!-- <h1>FROG HUNTER</h1> -->
-    <img src="./Images/titulo.png" alt="title" height="203px">
+    <img src="./Images/titulo.png" alt="title" height="180px">
   </header>
 
   <div id="instructions" class="warning">
@@ -49,7 +49,6 @@
 
   <section id="game">
     <div class="frog-rating">
-      <div class="frog">
         <!-- <h1>FROG GAME</h1> -->
         <div id="animal" class="grid-container">
 
@@ -63,7 +62,6 @@
           <div class="pond" id="pos-7" onclick="hitFrog(7)"></div>
           <div class="pond" id="pos-8" onclick="hitFrog(8)"></div>
           <div class="pond" id="pos-9" onclick="hitFrog(9)"></div>
-        </div>
       </div>
 
       <div id="rating">
@@ -76,8 +74,8 @@
 
         <table id="table">
           <thead>
-            <th>High Score</th>
-            <th id="high-score-1-name"></th>
+            <th>High Score -</th>
+            <!-- <th id="high-score-1-name"></th> -->
             <th id="high-score-1-value"></th>
           </thead>
         </table>
@@ -88,12 +86,18 @@
   <section id="two" class="play-spongebob">
     <div class="play">
       <!-- BUTTONS -->
-      <button class="play-style" onclick="play()"><img src="./Images/play-200.png" alt="" height="150px">Play</button>
-      <button class="reset-style" onclick="tryAgain()" id="reset"><img src="./Images/icon8-200.png" alt="" height="150px">Try Again</button>
+      <button class="btn play-style" onclick="play()">
+        <img src="./Images/play-200.png" alt="" height="150px">
+        Play
+      </button>
+      <button class="btn reset-style" onclick="tryAgain()" id="reset">
+        <img src="./Images/icon8-200.png" alt="" height="150px">
+        Try Again
+      </button>
     </div>
   </section>
 
-  <div>
+  <div class="sponge-bob">
     <img src="./Images/SPONGMARTELO.png" alt="" height="500px" class="image-spong">
   </div>
 
