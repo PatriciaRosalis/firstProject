@@ -7,6 +7,7 @@ var interval;
 
 function onCloseInstructions() {
   $instructions.style.display = "none";
+  let name = prompt('What is your name?', 'User')
 }
 
 function hitFrog(pos) {
@@ -62,6 +63,7 @@ function tryAgain() {
   $rate.innerHTML = score;
   resetChr();
   clearInterval(interval);
+  renderHighScore();
 }
 
 // game over
@@ -80,6 +82,45 @@ function play() {
 // ----------------------------------------------------------------------------------------------------------------------------------
 // falta fazer o score + possivel high score 
 // ----------------------------------------------------------------------------------------------------------------------------------
+
+
+// document.getElementById('plus').onclick = function () {
+//   score++
+//   document.getElementById('score').innerText = score
+// }
+// document.getElementById('stop').onclick = function () {
+//   saveFirstHighScore(score)
+//   renderHighScore()
+//   score = 0
+//   document.getElementById('score').innerText = score
+// }
+
+function getFirstHighScoreValue() {
+  // localStorage.getItem always return a string
+  return Number(localStorage.getItem('highScoreValue'))
+}
+
+function getFirstHighScoreName() {
+  return localStorage.getItem('highScoreName')
+}
+
+function renderHighScore() {
+  document.getElementById("high-score-1-value").innerText = getFirstHighScoreValue()
+  document.getElementById("high-score-1-name").innerText = getFirstHighScoreName()
+}
+
+renderHighScore()
+
+// Take the score and update the first high score if necessary
+function saveFirstHighScore(newScore) {
+  let currentHighScore = getFirstHighScoreValue()
+  // If we have a new high score
+  if (newScore > currentHighScore) {
+    localStorage.setItem('highScoreValue', score)
+    localStorage.setItem('highScoreName', name)
+  }
+}
+
 
 
 // For the highscore

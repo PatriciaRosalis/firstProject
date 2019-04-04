@@ -4,7 +4,8 @@
 <!-- DIV EXPLODE,-->
 <div id="over" class="explode">
   <img src="./Images/game-explode.png" alt="">
-  <button onclick="tryAgain()">Try Again</button>
+  <button onclick="tryAgain()">Try Again</button> 
+  <button onclick="" class="button-explode2">High Score</button>
 </div>
 
 <head>
@@ -60,9 +61,17 @@
         <div id="rate">
           <!-- <h3>SCORE:</h3> -->
         </div>
+
+        
+        <table id="table">
+          <thead>
+            <th>High Score</th>
+            <th id="high-score-1-name"></th>
+            <th id="high-score-1-value"></th>
+          </thead>
+        </table>  
         <div id="showtm"> </div>
       </div>
-
   </section>
 
   <section id="two" class="play-spongebob">
@@ -77,6 +86,7 @@
     <img src="./Images/SPONGMARTELO.png" alt="" height="500px" class="image-spong">
   </div>
 
+  <script src="./js/score.js"></script>
   <script src="./js/timer.js"></script>
   <script src="./js/main.js"></script>
 </body>
