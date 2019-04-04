@@ -7,7 +7,7 @@ var interval;
 
 function onCloseInstructions() {
   $instructions.style.display = "none";
-  let name = prompt('What is your name?', 'User')
+  // let name = prompt('What is your name?', 'User')
 }
 
 function hitFrog(pos) {
@@ -22,21 +22,22 @@ function hitFrog(pos) {
   }
   else if (dataFrog == 0) {
     gameOver();
-    resetChr();
+    resetTime();
     return;
   }
   $rate.innerHTML = score;
   randomImage();
+  // playAudioFrog();
 }
 
 // 600 - 0
 function Velocity() {
-  let randomVelocity = Math.floor(Math.random() * 800) + 100;
+  let randomVelocity = Math.floor(Math.random() * 1500) + 800;
   return randomVelocity;
 }
 
 function frogVelocity() {
-  let frogFast = Math.floor(Math.random() * 800) + 1500;
+  let frogFast = Math.floor(Math.random() * 1500) + 800;
   return frogFast;
 }
 
@@ -53,6 +54,7 @@ function randomImage() {
     // $theImage[$placeIndex].style.backgroundImage = "";
     $theImage[$placeIndex].removeAttribute("data-frog")
   }, Velocity());
+  playAudioFrog()
 }
 
 
@@ -61,14 +63,18 @@ function tryAgain() {
   $explode.style.display = "none";
   score = 0;
   $rate.innerHTML = score;
-  resetChr();
+  resetTime();
   clearInterval(interval);
-  renderHighScore();
+  pauseAudioFrog();
+  pauseAudio1()
+  // renderHighScore();
 }
 
 // game over
 function gameOver() {
   $explode.style.display = "flex";
+  playAudio1()
+  pauseAudioFrog()
 }
 
 // play
@@ -76,24 +82,9 @@ function play() {
   interval = setInterval(function () {
     randomImage();
   }, frogVelocity());
-  startChr();
+  startTime();
+  pauseAudio1()
 }
-
-// ----------------------------------------------------------------------------------------------------------------------------------
-// falta fazer o score + possivel high score 
-// ----------------------------------------------------------------------------------------------------------------------------------
-
-
-// document.getElementById('plus').onclick = function () {
-//   score++
-//   document.getElementById('score').innerText = score
-// }
-// document.getElementById('stop').onclick = function () {
-//   saveFirstHighScore(score)
-//   renderHighScore()
-//   score = 0
-//   document.getElementById('score').innerText = score
-// }
 
 function getFirstHighScoreValue() {
   // localStorage.getItem always return a string
@@ -121,8 +112,6 @@ function saveFirstHighScore(newScore) {
   }
 }
 
-
-
 // For the highscore
 // 1 high score
 // localStorage.getItem("highScore")
@@ -130,3 +119,25 @@ function saveFirstHighScore(newScore) {
 // multiple high scores
 // JSON.parse(localStorage.getItem("highScores"))
 // localStorage.setItem("highScores", JSON.stringify([42, 30, 10]))
+
+var audioFrog = document.getElementById("myAudioFrog");
+function playAudioFrog() {
+  audioFrog.play();
+  // setTimeout(() => {
+
+  // }, gameover());
+}
+
+function pauseAudioFrog() {
+  audioFrog.pause();
+}
+
+
+var exploseAudio = document.getElementById("myAudio1");
+function playAudio1() {
+  exploseAudio.play();
+}
+
+function pauseAudio1() {
+  exploseAudio.pause();
+}

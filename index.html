@@ -4,7 +4,7 @@
 <!-- DIV EXPLODE,-->
 <div id="over" class="explode">
   <img src="./Images/game-explode.png" alt="">
-  <button onclick="tryAgain()">Try Again</button> 
+  <button onclick="tryAgain()">Try Again</button>
   <button onclick="" class="button-explode2">High Score</button>
 </div>
 
@@ -17,6 +17,17 @@
 </head>
 
 <body>
+
+  <audio id="myAudioFrog">
+    <source src="./music/frog sound effect.mp3" type="audio/ogg">
+    <!-- Your browser does not support the audio element. -->
+  </audio>
+
+  <audio id="myAudio1">
+    <source src="./music/explosion sound effect.mp3" type="audio/ogg">
+    <!-- Your browser does not support the audio element. -->
+  </audio>
+
 
   <header class="header">
     <!-- <h1>FROG HUNTER</h1> -->
@@ -62,23 +73,23 @@
           <!-- <h3>SCORE:</h3> -->
         </div>
 
-        
+
         <table id="table">
           <thead>
             <th>High Score</th>
             <th id="high-score-1-name"></th>
             <th id="high-score-1-value"></th>
           </thead>
-        </table>  
-        <div id="showtm"> </div>
+        </table>
+        <div id="time"> </div>
       </div>
   </section>
 
   <section id="two" class="play-spongebob">
     <div class="play">
       <!-- BUTTONS -->
-      <button onclick="play()"><img src="./Images/play-200.png" alt="" height="150px"></button>
-      <button onclick="tryAgain()" id="reset"><img src="./Images/icon8-200.png" alt="" height="150px"></button>
+      <button class="play-style" onclick="play()"><img src="./Images/play-200.png" alt="" height="150px">Play</button>
+      <button class="reset-style" onclick="tryAgain()" id="reset"><img src="./Images/icon8-200.png" alt="" height="150px">Try Again</button>
     </div>
   </section>
 
@@ -87,7 +98,7 @@
   </div>
 
   <script src="./js/score.js"></script>
-  <script src="./js/timer.js"></script>
+  <script src="./js/countdown.js"></script>
   <script src="./js/main.js"></script>
 </body>
 
