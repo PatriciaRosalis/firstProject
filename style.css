@@ -373,13 +373,13 @@ html {
     margin-top: 60px;
   }
   .explode {
-    height: 123%;
-    width: 110%;
+    height: 120%;
+    width: 120%;
   }
   .explode img {
     height: 30px;
     margin: 0;
-    min-height: 332px;
+    min-height: 400px;
   }
   .explode button {
     height: 65px;
