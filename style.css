@@ -14,13 +14,12 @@ html {
 }
 
 .header {
+  max-width: 800px;
   text-align: center;
-  /* background-color: #87D37C; */
-  height: 140px;
-  padding: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0 auto;
 }
 
 /* 
@@ -140,7 +139,7 @@ html {
   position: absolute;
   left: 0;
   right: 0;
-  margin: 46px auto;
+  margin: 28px auto;
   width: 99%;
   min-height: 650px;
   background-color: #e0aa47;
@@ -242,6 +241,8 @@ html {
   }
 
   #rating {
+    display: flex;
+    justify-content: center;
     height: auto;
     width: 100%;
     padding: 10px;
