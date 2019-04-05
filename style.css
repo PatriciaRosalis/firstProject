@@ -79,18 +79,21 @@ html {
   z-index: 1;
 }
 
+/* 
 #table {
   display: flex;
-  justify-content: center;
-  align-content: center;
   flex-direction: column; 
-}
+} */
 
 #scoreName {
-  color:green;
-  font-size: 23px;
+  color: green;
+  font-size: 30px;
+  text-align: center;
 }
 
+#high-score-1-value {
+  text-align: center;
+}
 
 #rating {
   display: flex;
@@ -105,11 +108,13 @@ html {
   font-size: 25px;
 }
 
-#rate span{
+#rate span {
   font-size: 30px;
   color: green;
-  padding: 2px; 
+  padding: 2px;
+  padding: 20px;
 }
+
 /* #rating img, p {
   margin: 20px;
 } */
@@ -233,8 +238,6 @@ html {
   font-size: 30px;
 }
 
-
-
 .explode button {
   height: 90px;
   width: 400px;
@@ -276,6 +279,7 @@ html {
     height: auto;
     align-items: center;
     justify-content: space-around;
+    flex-direction: row;
     width: 100%;
     margin-bottom: 3px;
     margin-right: 0px;
@@ -289,25 +293,27 @@ html {
     background-size: 200% 200%;
   }
   .pond {
-    background-size: 89% 80%;
+    background-size: 100% 76%;
     background-repeat: no-repeat;
     display: block;
     margin-left: 10px;
     font-size: 25px;
   }
   .warning {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     position: absolute;
     left: 0;
     right: 0;
     margin: 0px auto;
-    width: 99%;
-    min-height: 655px;
+    width: 100%;
+    min-height: 588px;
     background-color: #e0aa47;
-    border: 2px solid black;
+    border: none;
     text-align: center;
     z-index: 1;
   }
-  
   .warning h1 {
     font-size: 20px;
     margin: 10px;
@@ -328,19 +334,20 @@ html {
     border-right: 1px solid black;
     text-align: center;
   }
-
   #time {
-    font-size: 30px;
+    font-size: 25px;
     float: right;
-    margin-left: 12px;
-    margin-right: 12px;
+    border: none;
+  }
+  .play {
+    margin-top: 0;
   }
   .play-style img {
-    height: 85px;
+    height: 75px;
     font-size: 9px;
   }
   .reset-style img {
-    height: 85px;
+    height: 75px;
     font-size: 9px;
   }
   .header img {
@@ -352,6 +359,7 @@ html {
   }
   .btn {
     flex-direction: row;
+    margin-top: 60px;
   }
   .explode {
     height: 100%;
@@ -368,5 +376,20 @@ html {
     background-color: transparent;
     font-size: 21px;
     margin-top: 25px;
+  }
+  #scoreName {
+    font-size: 15px;
+    margin-right: 1px;
+  }
+  #rate span {
+    font-size: 15px;
+  }
+  #rate p {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+  #high-score-1-value {
+    text-align: center;
+    font-size: 19px;
   }
 }
