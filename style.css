@@ -89,15 +89,18 @@ html {
   color: green;
   font-size: 30px;
   text-align: center;
+  padding-top: 40px;
 }
 
 #high-score-1-value {
   text-align: center;
+  padding-top: 10px;
+  padding-bottom: 30px;
 }
 
 #rating {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
   border: 2px solid black;
@@ -123,6 +126,10 @@ html {
   background-color: transparent;
   border: none;
   cursor: pointer;
+}
+
+#smash {
+  font-size: 30px;
 }
 
 .play-style, .reset-style {
@@ -181,6 +188,7 @@ html {
 }
 
 .warning h1 {
+  padding-left: 60px;
   font-size: 50px;
   text-align: center;
   margin: 14px;
@@ -231,11 +239,12 @@ html {
 }
 
 #time {
-  border: 1px solid black;
+  border: 2px solid green;
   border-radius: 120px;
   width: 65px;
   padding: 6px;
   font-size: 30px;
+  margin-top: 50px;
 }
 
 .explode button {
@@ -307,7 +316,7 @@ html {
     left: 0;
     right: 0;
     margin: 0px auto;
-    width: 100%;
+    width: 105%;
     min-height: 588px;
     background-color: #e0aa47;
     border: none;
@@ -317,6 +326,7 @@ html {
   .warning h1 {
     font-size: 20px;
     margin: 10px;
+    padding: 0;
   }
   .warning p {
     font-size: 14px;
@@ -338,6 +348,7 @@ html {
     font-size: 25px;
     float: right;
     border: none;
+    margin: 0;
   }
   .play {
     margin-top: 0;
@@ -362,7 +373,7 @@ html {
     margin-top: 60px;
   }
   .explode {
-    height: 110%;
+    height: 123%;
     width: 110%;
   }
   .explode img {
@@ -380,6 +391,7 @@ html {
   #scoreName {
     font-size: 15px;
     margin-right: 1px;
+    padding: 0;
   }
   #rate span {
     font-size: 15px;
@@ -391,5 +403,10 @@ html {
   #high-score-1-value {
     text-align: center;
     font-size: 19px;
+    padding: 0;
+  }
+  #smash {
+    font-size: 25px;
+    margin-top: 34px;
   }
 }
